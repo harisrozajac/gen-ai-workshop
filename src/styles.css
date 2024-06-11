@@ -1,0 +1,20 @@
+body {
+  background: #d3d3d3;
+  font-family: sans-serif;
+  padding: 20px 0;
+}
+
+.config {
+  border: 1px solid #dddbdb;
+  border-radius: 10px;
+  padding: 20px 0;
+  margin-bottom: 30px;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.context {
+  padding: 50px 0;
+}
