@@ -10,7 +10,6 @@ const defaultPrompt =
   "The pizza names should mention a diminutive of one of the user's ingredients";
 
 const API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
-const DEFAULT_API_KEY = "your api key";
 const DEFAULT_TEMPERATURE = 0.5;
 const DEFAULT_MAX_TOKENS = 256;
 
@@ -59,7 +58,8 @@ const INGREDIENTS = [
 
 export default function App() {
   const [configuration, setConfiguration] = useState({
-    apiKey: DEFAULT_API_KEY,
+    apiKey: "",
+    apiKeyInput: "",
     temperature: DEFAULT_TEMPERATURE,
     maxTokens: DEFAULT_MAX_TOKENS,
     model: MODELS[0],
@@ -206,11 +206,10 @@ export default function App() {
                     className="form-control"
                     id="apiKey"
                     placeholder="sk-..."
-                    value={configuration.apiKey}
                     onChange={(e) => {
                       setConfiguration({
                         ...configuration,
-                        apiKey: e.target.value,
+                        apiKeyInput: e.target.value,
                       });
                     }}
                   />
@@ -218,6 +217,12 @@ export default function App() {
                     <button
                       className="btn btn-outline-secondary btnAuthorize"
                       type="button"
+                      onClick={() =>
+                        setConfiguration({
+                          ...configuration,
+                          apiKey: configuration.apiKeyInput,
+                        })
+                      }
                     >
                       Authorize
                     </button>
