@@ -10,10 +10,11 @@ const defaultPrompt =
   "The pizza names should mention a diminutive of one of the user's ingredients";
 
 const API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
+const DEFAULT_API_KEY = "your key";
 const DEFAULT_TEMPERATURE = 0.5;
 const DEFAULT_MAX_TOKENS = 256;
 
-const MODELS = ["gpt-3.5-turbo", "gpt-4"];
+const MODELS = ["gpt-3.5-turbo", "gpt-4", "gpt-4o"];
 
 const KEYWORDS = [
   "unicorn",
@@ -58,7 +59,7 @@ const INGREDIENTS = [
 
 export default function App() {
   const [configuration, setConfiguration] = useState({
-    apiKey: "",
+    apiKey: DEFAULT_API_KEY,
     apiKeyInput: "",
     temperature: DEFAULT_TEMPERATURE,
     maxTokens: DEFAULT_MAX_TOKENS,
@@ -69,6 +70,8 @@ export default function App() {
   const [userFeedback, setUserFeedback] = useState("");
   const [loading, setLoading] = useState(false);
 
+  console.log(configuration.apiKey);
+
   const [userInput, setUserInput] = useState({
     keyword: KEYWORDS[0],
     ingredients: [],
@@ -76,12 +79,11 @@ export default function App() {
 
   const resetForm = () => {
     setConfiguration({
-      //apiKey: DEFAULT_API_KEY,
+      apiKey: DEFAULT_API_KEY,
       temperature: DEFAULT_TEMPERATURE,
       maxTokens: DEFAULT_MAX_TOKENS,
       model: MODELS[0],
     });
-
     setUserInput({
       keyword: KEYWORDS[0],
       ingredients: [],
