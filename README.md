@@ -37,7 +37,7 @@ Prompt engineering is the process of designing and refining the input prompts to
 
 ---
 
-For this workshop we will use a [codesandbox](https://codesandbox.io/p/sandbox/gen-ai-workshop-w2f96c?file=%2Fsrc%2Findex.mjs%3A18%2C18) environment. Please **FORK** the sandbox to your account.
+For this workshop we will use a [codesandbox](https://codesandbox.io/p/sandbox/gen-ai-workshop-tpkrrf?file=%2Fsrc%2FApp.js) environment. Please **FORK** the sandbox to your account.
 We’ll be generating content using a basic HTTP request to an Open AI [endpoint](https://api.openai.com/v1/chat/completions). We will be using `gpt-35-turbo` or `gpt-4` models.
 
 ![app.png](images%2Fapp.png)
